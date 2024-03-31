@@ -15,4 +15,5 @@ public class VladickHelloImpl implements SayVladickHello {
 
         return "Helllo Vladick "+ name;
     }
+
 }

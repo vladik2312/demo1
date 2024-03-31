@@ -10,7 +10,7 @@ import javax.xml.ws.ResponseWrapper;
 
 @WebService(targetNamespace = "",name = "VladickHello")
 public interface SayVladickHello {
-	@WebResult(name="return",targetNamespace = "")
+	@WebResult(name = "return", targetNamespace = "")
 	@RequestWrapper(
 			localName = "vladickSayHello",
 			targetNamespace = "http://services.ws.sample",
@@ -20,6 +20,5 @@ public interface SayVladickHello {
 			localName = "seyHelloResponse",
 			targetNamespace = "http://services.ws.sample",
 			className = "com.example.demo.sayHelloResponse")
-	String sayVladickHello(@WebParam(name = "name", targetNamespace = "") String name );
-
+	String sayVladickHello(@WebParam(name = "name", targetNamespace = "") String name);
 }

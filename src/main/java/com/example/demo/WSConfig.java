@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.*;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,19 @@ public class WSConfig {
 
         return endpoint;
     }
+
     @Bean
     public EndpointImpl helloVladick() {
         EndpointImpl endpoint = new EndpointImpl(bus, new VladickHelloImpl());
         endpoint.publish("/ServiceVladick");
+
+        return endpoint;
+    }
+
+    @Bean
+    public EndpointImpl crudService() {
+        EndpointImpl endpoint = new EndpointImpl(bus, new CRUDServiceImpl());
+        endpoint.publish("/crud");
 
         return endpoint;
     }
