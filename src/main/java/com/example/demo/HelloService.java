@@ -1,15 +1,14 @@
 package com.example.demo;
 
-import jakarta.xml.ws.RequestWrapper;
-import jakarta.xml.ws.ResponseWrapper;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.ResponseWrapper;
 
 @WebService(targetNamespace = "",name = "Hello")
-
 public interface HelloService {
     @WebResult(name="return",targetNamespace = "")
     @RequestWrapper(
