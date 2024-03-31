@@ -46,4 +46,11 @@ public class WSConfig {
         endpoint.publish("/delete");
         return endpoint;
     }
+    @Bean
+    public MySQLConnection mySQLConnection() {
+        return new MySQLConnection();
+    }
+
+
+
 }

@@ -1,8 +1,10 @@
 package com.example.demo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class CreateService {
 
-    public void createRecord(String data) {
-        // Логіка створення запису з даними "data"
-    }
+
 }
