@@ -1,7 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.*;
 import org.apache.cxf.Bus;
-
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,37 +20,37 @@ public class WSConfig {
 
         return endpoint;
     }
+
     @Bean
-    public EndpointImpl createEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new CreateService());
+    public EndpointImpl createEndpoint(MySQLConnection mySQLConnection) {
+        EndpointImpl endpoint = new EndpointImpl(bus, new CreateService(mySQLConnection));
         endpoint.publish("/create");
         return endpoint;
     }
+
     @Bean
-    public EndpointImpl readEndpoint() {
+    public EndpointImpl readEndpoint(MySQLConnection mySQLConnection) {
         EndpointImpl endpoint = new EndpointImpl(bus, new ReadService());
         endpoint.publish("/read");
         return endpoint;
     }
 
     @Bean
-    public EndpointImpl updateEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new UpdateService());
+    public EndpointImpl updateEndpoint(MySQLConnection mySQLConnection) {
+        EndpointImpl endpoint = new EndpointImpl(bus, new UpdateService(mySQLConnection));
         endpoint.publish("/update");
         return endpoint;
     }
 
     @Bean
-    public EndpointImpl deleteEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new DeleteService());
+    public EndpointImpl deleteEndpoint(MySQLConnection mySQLConnection) {
+        EndpointImpl endpoint = new EndpointImpl(bus, new DeleteService(mySQLConnection));
         endpoint.publish("/delete");
         return endpoint;
     }
+
     @Bean
     public MySQLConnection mySQLConnection() {
         return new MySQLConnection();
     }
-
-
-
 }
