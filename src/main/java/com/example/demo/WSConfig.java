@@ -20,37 +20,11 @@ public class WSConfig {
 
         return endpoint;
     }
-
     @Bean
-    public EndpointImpl createEndpoint(MySQLConnection mySQLConnection) {
-        EndpointImpl endpoint = new EndpointImpl(bus, new CreateService(mySQLConnection));
-        endpoint.publish("/create");
+    public EndpointImpl helloVladick() {
+        EndpointImpl endpoint = new EndpointImpl(bus, new VladickHelloImpl());
+        endpoint.publish("/ServiceVladick");
+
         return endpoint;
-    }
-
-    @Bean
-    public EndpointImpl readEndpoint(MySQLConnection mySQLConnection) {
-        EndpointImpl endpoint = new EndpointImpl(bus, new ReadService());
-        endpoint.publish("/read");
-        return endpoint;
-    }
-
-    @Bean
-    public EndpointImpl updateEndpoint(MySQLConnection mySQLConnection) {
-        EndpointImpl endpoint = new EndpointImpl(bus, new UpdateService(mySQLConnection));
-        endpoint.publish("/update");
-        return endpoint;
-    }
-
-    @Bean
-    public EndpointImpl deleteEndpoint(MySQLConnection mySQLConnection) {
-        EndpointImpl endpoint = new EndpointImpl(bus, new DeleteService(mySQLConnection));
-        endpoint.publish("/delete");
-        return endpoint;
-    }
-
-    @Bean
-    public MySQLConnection mySQLConnection() {
-        return new MySQLConnection();
     }
 }
